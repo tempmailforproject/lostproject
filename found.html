@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Found Items | Lost & Found Hub</title>
+
+  <link rel="stylesheet" href="found.css" />
+
+  <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-storage-compat.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Decorative Stars -->
+  <div class="stars"></div>
+  <div class="shooting-stars"></div>
+
+  <!-- Page Heading -->
+  <h1>✨ Found Items ✨</h1>
+
+  <!-- Found Items Display Container -->
+  <div class="lost-container" id="found-items-list">
+    <!-- Items loaded by JS -->
+  </div>
+
+  <!-- Found Item Submission Form -->
+  <div class="form-container">
+    <form class="lost-form" id="found-form">
+      <h2>📦 Report a Found Item</h2>
+
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" placeholder="John Doe" required />
+
+      <label for="item-found">Item Found:</label>
+      <input type="text" id="item-found" name="item-found" placeholder="E.g. Wallet, Phone" required />
+
+      <label for="last-seen">Found At:</label>
+      <input type="text" id="last-seen" name="last-seen" placeholder="E.g. Near Library" required />
+
+      <label for="contact-info">Contact Info:</label>
+      <input type="text" id="contact-info" name="contact-info" placeholder="Phone/Email" required />
+
+      <label for="description">Item Description:</label>
+      <textarea id="description" name="description" placeholder="Brief description of the item..." rows="4"
+        required></textarea>
+
+      <label for="photo">Upload Photo:</label>
+      <input type="file" id="photo" name="photo" accept="image/*" required />
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- Firebase & App Script -->
+  <script src="found.js"></script>
+</body>
+
+</html>

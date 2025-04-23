@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost and Found</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+    <div class="container">
+        <a href="#" class="lost" onclick="redirectWithDelay('lost.html')">Lost</a>
+        <a href="#" class="found" onclick="redirectWithDelay('found.html')">Found</a>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen hidden">
+        <h1>Loading...</h1>
+    </div>
+
+    <!-- Add this before your custom script -->
+    <!-- Firebase App (the core Firebase SDK) -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js"></script>
+    <!-- Firebase Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js"></script>
+
+    <script>
+        // Your Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyBEagD9WprpIoDri3Hg7_j-y3mmQQGy66o",
+            authDomain: "lostandfoundhub-4ede1.firebaseapp.com",
+            projectId: "lostandfoundhub-4ede1",
+            storageBucket: "lostandfoundhub-4ede1.firebasestorage.app",
+            messagingSenderId: "811409158826",
+            appId: "1:811409158826:web:871d135ef4c734f8a896d3",
+            measurementId: "G-X5K378Z96M"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const analytics = firebase.analytics();
+
+        const starCount = 100; // Number of stars
+        const shootingStarCount = 15; // Increased number of shooting stars
+        const body = document.body;
+
+        // Generate static stars
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.top = Math.random() * 100 + 'vh'; // Random vertical position
+            star.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
+            star.style.animationDuration = Math.random() * 1.5 + 0.5 + 's'; // Random twinkle duration
+            body.appendChild(star);
+        }
+
+        // Generate shooting stars
+        for (let i = 0; i < shootingStarCount; i++) {
+            const shootingStar = document.createElement('div');
+            shootingStar.classList.add('shooting-star');
+            shootingStar.style.top = Math.random() * 100 + 'vh'; // Random vertical position
+            shootingStar.style.left = Math.random() * 100 + 'vw'; // Random horizontal position
+            shootingStar.style.animationDelay = Math.random() * 3 + 's'; // Random delay for staggered effect
+            shootingStar.style.animationDuration = Math.random() * 2 + 1 + 's'; // Random shooting duration
+            body.appendChild(shootingStar);
+        }
+
+        // Redirect with delay and show loading screen
+        function redirectWithDelay(url) {
+            const loadingScreen = document.getElementById('loading-screen');
+            loadingScreen.classList.remove('hidden'); // Show loading screen
+            setTimeout(() => {
+                window.location.href = url; // Redirect after 2 seconds
+            }, 2000);
+        }
+
+    </script>
+</body>
+
+</html>

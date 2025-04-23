@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="lost.css" />
+  <title>Lost Page</title>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js"></script>
+</head>
+<body>
+  <!-- Space Animation -->
+  <div class="stars"></div>
+  <div class="shooting-stars"></div>
+
+  <h1>"Lost Items"</h1>
+  <div class="lost-container" id="lost-items-list">
+    <!-- Dynamically loaded lost items will appear here -->
+  </div>
+
+  <!-- Lost Item Form in a Container -->
+  <div class="form-container">
+    <form class="lost-form" id="lost-form">
+      <h2>Report a Lost Item</h2>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required />
+
+      <label for="item-lost">Item Lost:</label>
+      <input type="text" id="item-lost" name="item-lost" placeholder="Enter the lost item" required />
+
+      <label for="last-seen">Last Seen:</label>
+      <input type="text" id="last-seen" name="last-seen" placeholder="Where was it last seen?" required />
+
+      <label for="contact-info">Contact Info:</label>
+      <input type="text" id="contact-info" name="contact-info" placeholder="Enter your contact info" required />
+
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" placeholder="Provide a brief description" rows="4" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script src="lost.js"></script>
+</body>
+</html>
